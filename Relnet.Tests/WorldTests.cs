@@ -11,7 +11,7 @@ namespace Relnet.Tests
         [TestMethod]
         public void BuildWorld()
         {
-            const int NUM_NODES = 50;
+            const int NUM_NODES = 6;
             const int NUM_STATES = 2;
             var nodes = new List<Node>();
             for (int i = 1; i <= NUM_NODES; i++)
@@ -23,8 +23,33 @@ namespace Relnet.Tests
             {
                 states.Add(new State { Name = $"S{i}" });
             }
-            var world = new RelnetWorld(nodes, states);
+            var triConfigs = new List<TriangleConfiguration>();
+            var tempConfig = new TriangleConfiguration(states);
+            tempConfig.StateCounts[states[0]] = 3;
+            tempConfig.StateWeights[states[0]][states[1]] = 100;
+            triConfigs.Add(tempConfig);
+            tempConfig = new TriangleConfiguration(states);
+            tempConfig.StateCounts[states[1]] = 3;
+            tempConfig.StateWeights[states[1]][states[0]] = 100;
+            triConfigs.Add(tempConfig);
+            tempConfig = new TriangleConfiguration(states);
+            tempConfig.StateCounts[states[0]] = 2;
+            tempConfig.StateCounts[states[1]] = 1;
+            tempConfig.StateWeights[states[0]][states[1]] = 100;
+            tempConfig.StateWeights[states[1]][states[0]] = 50;
+            triConfigs.Add(tempConfig);
+            tempConfig = new TriangleConfiguration(states);
+            tempConfig.StateCounts[states[1]] = 2;
+            tempConfig.StateCounts[states[0]] = 1;
+            tempConfig.StateWeights[states[1]][states[0]] = 100;
+            tempConfig.StateWeights[states[0]][states[1]] = 50;
+            triConfigs.Add(tempConfig);
+            var world = new RelnetWorld(nodes, states, triConfigs);
             Assert.AreEqual((NUM_NODES * (NUM_NODES - 1)) / 2, world.Relationships.Count, "Failed to create the proper number of relationships");
+            for (int i = 0; i < 1000; i++)
+            {
+                world.Step();
+            }
         }
     }
 }

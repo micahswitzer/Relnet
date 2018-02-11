@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Relnet.Simulation", "Relnet.Simulation\Relnet.Simulation.csproj", "{AE0014DA-83BC-4E6D-89DA-5C22210B445B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE0014DA-83BC-4E6D-89DA-5C22210B445B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0014DA-83BC-4E6D-89DA-5C22210B445B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0014DA-83BC-4E6D-89DA-5C22210B445B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0014DA-83BC-4E6D-89DA-5C22210B445B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F423B81-6759-40D4-97F6-C6D186CD254F}
+	EndGlobalSection
+EndGlobal

@@ -46,7 +46,7 @@ namespace Relnet.Tests
             triConfigs.Add(tempConfig);
             var world = new RelnetWorld(nodes, states, triConfigs);
             Assert.AreEqual((NUM_NODES * (NUM_NODES - 1)) / 2, world.Relationships.Count, "Failed to create the proper number of relationships");
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 100; i++)
             {
                 world.Step();
             }

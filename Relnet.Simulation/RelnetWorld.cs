@@ -12,11 +12,13 @@ namespace Relnet.Simulation
         public List<Relationship> Relationships { get; private set; }
         public List<State> States { get; private set; }
         public List<TriangleConfiguration> TriConfigs { get; private set; }
+        public int NodeCount { get; private set; }
         private Random Random = new Random((int)DateTime.Now.Ticks);
 
         public RelnetWorld(List<Node> nodes, List<State> states, List<TriangleConfiguration> triConfigs)
         {
             Nodes = nodes;
+            NodeCount = nodes.Count;
             States = states;
             Relationships = new List<Relationship>();
             TriConfigs = triConfigs;
@@ -75,7 +77,7 @@ namespace Relnet.Simulation
         {
             foreach (var rel in Relationships)
             {
-                int total = rel.Stay;
+                int total = rel.Stay * (NodeCount - 2);
                 var tempList = new List<(State, int)>
                 {
                     (rel.State, total)

@@ -10,7 +10,7 @@ namespace Relnet.Simulation
         public Node NodeOne { get; private set; }
         public Node NodeTwo { get; private set; }
         public State State { get; internal set; }
-        public int Stay { get; internal set; } = 0;
+        public int Stay { get; internal set; } = 100;
         public Dictionary<State, int> Weights { get; private set; }
 
         public Relationship(Node node1, Node node2, State initialState, IEnumerable<State> states)
